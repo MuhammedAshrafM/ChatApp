@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="selected"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/tv_country_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_4sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_country_dial_code"
+            android:padding="@dimen/_8sdp"
+            android:gravity="center|start"
+            android:fontFamily="@font/helvetica_bold"
+            android:text="Egypt"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/charcoal" />
+
+        <TextView
+            android:id="@+id/tv_country_dial_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            app:layout_constraintTop_toTopOf="@id/tv_country_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_country_name"
+            app:layout_constraintEnd_toStartOf="@id/img_selected"
+            android:padding="@dimen/_8sdp"
+            android:gravity="center"
+            android:fontFamily="@font/helvetica_bold"
+            android:text="+20"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@color/dark_gray" />
+
+        <ImageView
+            android:id="@+id/img_selected"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_country_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_country_name"
+            android:visibility="@{selected ? View.VISIBLE : View.INVISIBLE}"
+            android:src="@drawable/ic_done"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/alice_blue"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_country_name"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

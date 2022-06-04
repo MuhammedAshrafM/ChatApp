@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">ChatApp</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="on_boarding_text1">Chat Anytime, Anywhere</string>
+    <string name="on_boarding_text2">Contact Your Friends</string>
+    <string name="on_boarding_text3">Make Group Chat</string>
+    <string name="on_boarding_text4">Try Voice Messaging</string>
+    <string name="get_started">Get Started</string>
+    <string name="skip">Skip</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="mobile">Mobile</string>
+    <string name="_continue">Continue</string>
+    <string name="we_will_send_you_otp_to_verify">We will send you OTP to verify</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="enter_the_otp_sent_to">Enter the OTP sent to %s%s</string>
+    <string name="verify">Verify</string>
+    <string name="did_not_receive_otp">Didn\'t receive OTP?</string>
+    <string name="resend">Resend</string>
+    <string name="search">Search</string>
+    <string name="choose_country">Choose a country</string>
+
+    <string name="code_field_mandatory">Country Code is Required</string>
+    <string name="phone_no_field_mandatory">Phone Number is Required</string>
+    <string name="phone_no_invalid">Invalid Phone format, Please Check the number</string>
+
+    <string name="NoInternetConnection" translatable="false">No Internet Connection</string>
+    <string name="failedConnection">No internet connection, please check connection and try again</string>
+    <string name="timeoutExceeded">Timeout exceeded while waiting for loading, make sure you are connected to the internet</string>
+    <string name="invalid_auth_request">Invalid auth request</string>
+    <string name="too_many_requests">The SMS quota for the project has been exceeded</string>
+    <string name="error_occurred">error occurred, please try again</string>
+    <string name="enter_full_otp_code">Please enter the full OTP code</string>
+    <string name="come_back">Come back</string>
+    <string name="welcome_chat_app">Welcome to ChatApp</string>
+    <string name="code_sent">Code Sent, Check Your SMS</string>
+
+</resources>

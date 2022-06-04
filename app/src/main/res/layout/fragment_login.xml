@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.chatapp.ui.login.LoginViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.login.LoginFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_220sdp"
+                android:src="@drawable/ic_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                android:gravity="center"
+                android:fontFamily="@font/helvetica_bold"
+                android:text="@string/enter_your_phone_number"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/charcoal"/>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:gravity="center"
+                android:fontFamily="@font/euclid_circular_a_regular"
+                android:text="@string/we_will_send_you_otp_to_verify"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/charcoal"/>
+
+            <EditText
+                android:id="@+id/et_country"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_28sdp"
+                android:layout_marginStart="@dimen/_28sdp"
+                android:layout_marginEnd="@dimen/_28sdp"
+                android:backgroundTint="@color/caribbean_green"
+                android:padding="@dimen/_12sdp"
+                android:focusable="false"
+                android:gravity="center"
+                android:fontFamily="@font/euclid_circular_a_regular"
+                android:textSize="@dimen/_12ssp"
+                android:text="@string/choose_country"
+                android:textColor="@color/charcoal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView2"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_phone_number"
+                style="@style/roundInputTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_28sdp"
+                android:layout_marginEnd="@dimen/_28sdp"
+                android:textColorHint="@color/charcoal"
+                app:prefixTextColor="@color/off_white"
+                app:prefixText="@{viewModel.countryCode}"
+                app:expandedHintEnabled="false"
+                app:boxStrokeErrorColor="@color/red"
+                app:endIconMode="custom"
+                app:endIconTint="@color/charcoal"
+                app:boxBackgroundColor="@color/caribbean_green3"
+                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_country">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/mobile"
+                    android:inputType="phone"
+                    android:padding="@dimen/_12sdp"
+                    android:layout_gravity="center"
+                    android:maxLength="20"
+                    android:letterSpacing="0.05"
+                    android:text="@{viewModel.phoneNumber}"
+                    android:textColor="@color/charcoal"
+                    android:textSize="@dimen/_13ssp"
+                    android:textColorHint="@color/charcoal"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_28sdp"
+                android:layout_marginEnd="@dimen/_28sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@drawable/background_button2"
+                android:fontFamily="@font/helvetica_bold"
+                android:gravity="center"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text="@string/_continue"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_phone_number"
+                app:layout_constraintVertical_bias="0.25" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.05" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
