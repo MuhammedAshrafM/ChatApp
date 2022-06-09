@@ -1,10 +1,15 @@
 package com.example.chatapp.di
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.firestoreSettings
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.messaging.ktx.messaging
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,11 +25,11 @@ object FirebaseModule {
 
     @Singleton
     @Provides
-    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
+    fun provideFirebaseAuth(): FirebaseAuth = Firebase.auth
 
     @Singleton
     @Provides
-    fun provideFirebaseFireStore(): FirebaseFirestore = FirebaseFirestore.getInstance().also {
+    fun provideFirebaseFireStore(): FirebaseFirestore = Firebase.firestore.also {
         val settings = firestoreSettings {
             isPersistenceEnabled = true
         }
@@ -33,11 +38,11 @@ object FirebaseModule {
 
     @Singleton
     @Provides
-    fun provideFirebaseStorage(): FirebaseStorage = FirebaseStorage.getInstance()
+    fun provideFirebaseStorage(): FirebaseStorage = Firebase.storage
 
     @Singleton
     @Provides
-    fun provideFirebaseMessaging(): FirebaseMessaging = FirebaseMessaging.getInstance()
+    fun provideFirebaseMessaging(): FirebaseMessaging = Firebase.messaging
 
     @ApplicationScope
     @Provides

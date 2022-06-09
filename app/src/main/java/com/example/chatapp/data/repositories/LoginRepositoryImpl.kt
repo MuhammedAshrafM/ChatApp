@@ -7,7 +7,7 @@ import com.example.chatapp.data.network.ExceptionsMapper
 import com.example.chatapp.domain.base.DataState
 import com.example.chatapp.domain.model.country_code.Countries
 import com.example.chatapp.domain.model.country_code.CountryCode
-import com.example.chatapp.utils.Constants.USERS_ID
+import com.example.chatapp.utils.Constants.USERS_DOCUMENT_ID
 import com.example.chatapp.utils.readFile
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -163,7 +163,7 @@ class LoginRepositoryImpl @Inject constructor(
         uid: String,
         onUserExistListener: (DataState<DocumentSnapshot?>) -> Unit
     ) =
-        fireStore.collection(USERS_ID).document(uid).get()
+        fireStore.collection(USERS_DOCUMENT_ID).document(uid).get()
             .addOnSuccessListener {
                 onUserExistListener(DataState(data = it))
             }

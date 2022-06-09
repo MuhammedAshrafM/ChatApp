@@ -1,10 +1,8 @@
 package com.example.chatapp.di
 
+import com.example.chatapp.data.repositories.AddNewUserInfoRepositoryImpl
 import com.example.chatapp.data.repositories.LoginRepositoryImpl
-import com.example.chatapp.domain.usecases.GetCountriesCodeUseCase
-import com.example.chatapp.domain.usecases.LoginUseCase
-import com.example.chatapp.domain.usecases.ResendOTPCodeUseCase
-import com.example.chatapp.domain.usecases.VerifyOTPCodeUseCase
+import com.example.chatapp.domain.usecases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,4 +32,14 @@ object UseCaseModule {
     @Provides
     fun provideResendOTPCodeUseCase(loginRepository: LoginRepositoryImpl) =
         ResendOTPCodeUseCase(loginRepository)
+
+    @Singleton
+    @Provides
+    fun provideUploadProfileImageUseCase(addNewUserInfoRepository: AddNewUserInfoRepositoryImpl) =
+        UploadProfileImageUseCase(addNewUserInfoRepository)
+
+    @Singleton
+    @Provides
+    fun provideAddNewUserInfoUseCase(addNewUserInfoRepository: AddNewUserInfoRepositoryImpl) =
+        AddNewUserInfoUseCase(addNewUserInfoRepository)
 }

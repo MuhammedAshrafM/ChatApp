@@ -24,6 +24,7 @@
     <string name="code_field_mandatory">Country Code is Required</string>
     <string name="phone_no_field_mandatory">Phone Number is Required</string>
     <string name="phone_no_invalid">Invalid Phone format, Please Check the number</string>
+    <string name="name_user_field_mandatory">Your Name is Required</string>
 
     <string name="NoInternetConnection" translatable="false">No Internet Connection</string>
     <string name="failedConnection">No internet connection, please check connection and try again</string>

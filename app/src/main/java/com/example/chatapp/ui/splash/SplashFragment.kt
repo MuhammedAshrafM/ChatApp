@@ -67,25 +67,19 @@ class SplashFragment : Fragment() {
             override fun onAnimationRepeat(animation: Animation) {}
         })
 
-        try {
-            lifecycleScope.launchWhenStarted {
-                viewModel.isFirstTimeSF.collect { isFirstTime ->
-                    this@SplashFragment.isFirstTime = isFirstTime
-                    Log.d("TAG", "setAnimation: $isFirstTime")
-                }
-                viewModel.isLoggedSF.collect { isLogged ->
-                    this@SplashFragment.isLogged = isLogged
-                }
-            }
-        } catch (e: Exception) {
-            Log.d("TAG", ": $e")
+        viewModel.isFirstTimeSF.observe(viewLifecycleOwner) { isFirstTime ->
+            this@SplashFragment.isFirstTime = isFirstTime
+            Log.d("TAG", "setAnimation: $isFirstTime")
+        }
+        viewModel.isLoggedSF.observe(viewLifecycleOwner) { isLogged ->
+            this@SplashFragment.isLogged = isLogged
         }
     }
 
     private fun navigateToNextScreen(){
         val idAction = when {
             isFirstTime -> R.id.action_splashFragment_to_onBoardingFragment
-            isLogged -> R.id.action_splashFragment_to_loginFragment
+            isLogged -> R.id.action_splashFragment_to_chatsFragment
             else -> R.id.action_splashFragment_to_loginFragment
         }
         navController?.navigate(idAction)

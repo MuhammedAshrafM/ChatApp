@@ -15,6 +15,8 @@ object Constants {
 
 
     // Firebase Constants
-    const val USERS_ID = "users"
+    const val USERS_DOCUMENT_ID = "users"
     const val OTP_CODE_COUNT = 6
+    const val FIREBASE_STORAGE_PROFILE_IMAGES_PATH = "profileImages/"
+    const val PROFILE_IMAGE_PATH_WITH_FIRST_NAME = "${FIREBASE_STORAGE_PROFILE_IMAGES_PATH}USER_"
 }

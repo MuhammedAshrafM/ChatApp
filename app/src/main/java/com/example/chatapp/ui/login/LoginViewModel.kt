@@ -8,10 +8,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.chatapp.R
+import com.example.chatapp.core.BaseViewModel
 import com.example.chatapp.domain.base.DataState
 import com.example.chatapp.domain.usecases.LoginUseCase
 import com.example.chatapp.domain.usecases.ResendOTPCodeUseCase
 import com.example.chatapp.domain.usecases.VerifyOTPCodeUseCase
+import com.example.chatapp.utils.PrefDataStoreUtil
 import com.example.chatapp.utils.SingleLiveEvent
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.firestore.DocumentSnapshot
@@ -20,10 +22,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
+    private val prefUtil: PrefDataStoreUtil,
     private val loginUseCase: LoginUseCase,
     private val verifyOTPCodeUseCase: VerifyOTPCodeUseCase,
     private val resendOTPCodeUseCase: ResendOTPCodeUseCase
-) : ViewModel() {
+) : BaseViewModel(prefUtil) {
 
     private val _countryCode = MutableLiveData<String>()
     val countryCode: LiveData<String> = _countryCode

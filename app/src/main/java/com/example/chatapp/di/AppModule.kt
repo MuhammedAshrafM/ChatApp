@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.chatapp.MainActivity
+import com.example.chatapp.core.BaseApplication
 import com.example.chatapp.utils.PrefDataStoreUtil
 import dagger.Module
 import dagger.Provides
@@ -23,8 +24,5 @@ object AppModule {
         PrefDataStoreUtil(context)
 
 
-//    @Provides
-//    @Singleton
-//    fun provideActivity(): Activity = MainActivity()
 
 }

@@ -93,7 +93,8 @@ class LoginFragment : BaseFragment() {
                         hideKeyboard()
                         if(documnet.exists()) {
                             toastMy(getString(R.string.come_back), true)
-                            navController?.navigate(R.id.action_loginFragment_to_chatsFragment)
+                            viewModel.saveUID(documnet.id)
+                            viewModel.setUserAsLogged()
                         }
                         else {
                             toastMy(getString(R.string.code_sent), true)
@@ -113,6 +114,11 @@ class LoginFragment : BaseFragment() {
             displayLoading(false)
             toastMy(getString(R.string.code_sent), true)
             navController?.navigate(R.id.action_loginFragment_to_OTPValidationFragment)
+        }
+
+        viewModel.isLoggedSF.observe(viewLifecycleOwner){isLogged ->
+            if(isLogged)
+                navController?.navigate(R.id.action_loginFragment_to_chatsFragment)
         }
     }
 

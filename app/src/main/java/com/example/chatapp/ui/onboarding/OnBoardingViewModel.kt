@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.chatapp.core.BaseViewModel
 import com.example.chatapp.domain.model.SliderItems
 import com.example.chatapp.utils.PrefDataStoreUtil
 import com.meem.domain.base.ResponseApi
@@ -15,19 +16,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class OnBoardingViewModel @Inject constructor(val prefUtil: PrefDataStoreUtil): ViewModel() {
+class OnBoardingViewModel @Inject constructor(private val prefUtil: PrefDataStoreUtil): BaseViewModel(prefUtil) {
 
     private val _sliderItemsSF: MutableStateFlow<SliderItems> =
         MutableStateFlow(SliderItems())
     val sliderItemsSF = _sliderItemsSF.asStateFlow()
 
-    private val _isFirstTimeSF: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
-    val isFirstTimeSF: LiveData<Boolean> = _isFirstTimeSF
-
-    fun disableFirstTime(){
-        viewModelScope.launch {
-            val firstTime = prefUtil.enableFirstTime(false)
-            _isFirstTimeSF.postValue(firstTime)
-        }
-    }
 }

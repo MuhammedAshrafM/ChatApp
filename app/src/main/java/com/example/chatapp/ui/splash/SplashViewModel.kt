@@ -17,11 +17,6 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashViewModel @Inject constructor(prefUtil: PrefDataStoreUtil) : BaseViewModel(prefUtil)  {
 
-    private val _isFirstTimeSF: MutableStateFlow<Boolean> = MutableStateFlow(true)
-    val isFirstTimeSF = _isFirstTimeSF.asStateFlow()
-
-    private val _isLoggedSF: MutableStateFlow<Boolean> = MutableStateFlow(false)
-    val isLoggedSF = _isLoggedSF.asStateFlow()
 
     init {
         viewModelScope.launch() {
@@ -29,8 +24,8 @@ class SplashViewModel @Inject constructor(prefUtil: PrefDataStoreUtil) : BaseVie
                 val asyncFirstTime = async { prefUtil.isAppFirstTime() }
                 val asyncLogged = async { prefUtil.isUserLogged() }
 
-                asyncFirstTime.await().buffer().onEach { _isFirstTimeSF.emit(it) }.launchIn(viewModelScope)
-                asyncLogged.await().buffer().onEach { _isLoggedSF.emit(it) }.launchIn(viewModelScope)
+                asyncFirstTime.await().buffer().onEach { _isFirstTimeSF.postValue(it) }.launchIn(viewModelScope)
+                asyncLogged.await().buffer().onEach { _isLoggedSF.postValue(it) }.launchIn(viewModelScope)
             } catch (e: Exception) {
                 Log.d("TAG", "setAnimation : $e")
             }

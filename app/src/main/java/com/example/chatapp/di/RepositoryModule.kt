@@ -1,11 +1,14 @@
 package com.example.chatapp.di
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import com.example.chatapp.data.network.ExceptionsMapper
+import com.example.chatapp.data.repositories.AddNewUserInfoRepositoryImpl
 import com.example.chatapp.data.repositories.LoginRepositoryImpl
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,4 +30,14 @@ object RepositoryModule {
         firebaseFirestore: FirebaseFirestore
     ) =
         LoginRepositoryImpl(exceptionsMapper, context, firebaseAuth, firebaseFirestore)
+
+    @Singleton
+    @Provides
+    fun provideAddNewUserInfoRepositoryImpl(
+        exceptionsMapper: ExceptionsMapper,
+        @ApplicationContext context: Context,
+        firesStorage: FirebaseStorage,
+        fireStore: FirebaseFirestore
+    ) =
+        AddNewUserInfoRepositoryImpl(exceptionsMapper, context, firesStorage, fireStore)
 }

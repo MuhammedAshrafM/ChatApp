@@ -86,12 +86,18 @@ class OTPValidationFragment : BaseFragment() {
                         hideKeyboard()
                         if(documnet.exists()) {
                             toastMy(getString(R.string.come_back), true)
-                            navController?.navigate(R.id.action_OTPValidationFragment_to_chatsFragment)
+                            viewModel.saveUID(documnet.id)
+                            viewModel.setUserAsLogged()
                         }
                         else {
                             toastMy(getString(R.string.welcome_chat_app), true)
-                            navController?.navigate(R.id.action_OTPValidationFragment_to_addNewUserInfoFragment)
-
+                            val phoneNumber = viewModel.countryCode.value + viewModel.phoneNumber.value
+                            val action =
+                                OTPValidationFragmentDirections.actionOTPValidationFragmentToAddNewUserInfoFragment(
+                                    documnet.id,
+                                    phoneNumber
+                                )
+                            navController?.navigate(action)
                         }
                     }
                 }
@@ -107,6 +113,11 @@ class OTPValidationFragment : BaseFragment() {
             hideKeyboard()
             displayLoading(false)
             toastMy(getString(R.string.code_sent), true)
+        }
+
+        viewModel.isLoggedSF.observe(viewLifecycleOwner){isLogged ->
+            if(isLogged)
+                navController?.navigate(R.id.action_OTPValidationFragment_to_chatsFragment)
         }
     }
 
