@@ -35,5 +35,10 @@
     <string name="come_back">Come back</string>
     <string name="welcome_chat_app">Welcome to ChatApp</string>
     <string name="code_sent">Code Sent, Check Your SMS</string>
+    <string name="name">Name</string>
+    <string name="about">About</string>
+    <string name="phone">Phone</string>
+    <string name="profile_info">Profile info</string>
+    <string name="provide_your_name">Please provide your name and an optional profile photo</string>
 
 </resources>

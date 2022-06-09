@@ -1,22 +1,19 @@
 package com.example.chatapp.ui.login
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
-import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.chatapp.R
 import com.example.chatapp.core.BaseFragment
 import com.example.chatapp.databinding.FragmentLoginBinding
 import com.example.chatapp.domain.base.DataState
-import com.example.chatapp.domain.model.countrycode.CountryCode
+import com.example.chatapp.domain.model.country_code.CountryCode
 import com.example.chatapp.utils.Constants.COUNTRY_CODE_REQUEST
 import com.example.chatapp.utils.Constants.COUNTRY_CODE_SELECTED
 import com.example.chatapp.utils.autoCleared
@@ -76,7 +73,6 @@ class LoginFragment : BaseFragment() {
                 countryCodeSelected?.run {
                     viewModel.setCountryCode("+$callingCode")
                     binding.etCountry.setText(name)
-//                    binding.countryCode = "+$callingCode"
                 }
             }
         }
@@ -97,10 +93,12 @@ class LoginFragment : BaseFragment() {
                         hideKeyboard()
                         if(documnet.exists()) {
                             toastMy(getString(R.string.come_back), true)
+                            navController?.navigate(R.id.action_loginFragment_to_chatsFragment)
+                        }
+                        else {
+                            toastMy(getString(R.string.code_sent), true)
                             navController?.navigate(R.id.action_loginFragment_to_OTPValidationFragment)
                         }
-                        else
-                            navController?.navigate(R.id.action_loginFragment_to_OTPValidationFragment)
                     }
                 }
                 DataState.Status.ERROR -> {

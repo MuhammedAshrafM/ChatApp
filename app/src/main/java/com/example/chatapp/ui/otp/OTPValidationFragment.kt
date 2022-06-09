@@ -70,6 +70,7 @@ class OTPValidationFragment : BaseFragment() {
         }
 
         binding.tvResendOtp.setOnClickListener {
+            binding.otpView.setText("")
             viewModel.resendOTP(requireActivity())
         }
 
@@ -85,13 +86,13 @@ class OTPValidationFragment : BaseFragment() {
                         hideKeyboard()
                         if(documnet.exists()) {
                             toastMy(getString(R.string.come_back), true)
-                            //navigate to chats screen
-//                            navController?.navigate(R.id.action_loginFragment_to_OTPValidationFragment)
+                            navController?.navigate(R.id.action_OTPValidationFragment_to_chatsFragment)
                         }
-                        else
+                        else {
                             toastMy(getString(R.string.welcome_chat_app), true)
-                        //navigate to add new user data screen
-//                            navController?.navigate(R.id.action_loginFragment_to_OTPValidationFragment)
+                            navController?.navigate(R.id.action_OTPValidationFragment_to_addNewUserInfoFragment)
+
+                        }
                     }
                 }
                 DataState.Status.ERROR ->{

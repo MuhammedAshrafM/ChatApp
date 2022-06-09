@@ -1,4 +1,4 @@
-package com.example.chatapp.domain.model.countrycode
+package com.example.chatapp.domain.model.country_code
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

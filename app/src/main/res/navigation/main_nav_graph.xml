@@ -44,6 +44,9 @@
         <action
             android:id="@+id/action_loginFragment_to_countriesCodeFragment"
             app:destination="@id/countriesCodeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_chatsFragment"
+            app:destination="@id/chatsFragment" />
     </fragment>
     <fragment
         android:id="@+id/OTPValidationFragment"
@@ -52,9 +55,23 @@
         <argument
             android:name="phoneNumber"
             app:argType="string" />
+        <action
+            android:id="@+id/action_OTPValidationFragment_to_addNewUserInfoFragment"
+            app:destination="@id/addNewUserInfoFragment" />
+        <action
+            android:id="@+id/action_OTPValidationFragment_to_chatsFragment"
+            app:destination="@id/chatsFragment" />
     </fragment>
     <fragment
         android:id="@+id/countriesCodeFragment"
         android:name="com.example.chatapp.ui.otp.CountriesCodeFragment"
         tools:layout="@layout/fragment_countries_code" />
+    <fragment
+        android:id="@+id/addNewUserInfoFragment"
+        android:name="com.example.chatapp.ui.new_user_info.AddNewUserInfoFragment"
+        tools:layout="@layout/fragment_add_new_user_info" />
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="com.example.chatapp.ui.chats.ChatsFragment"
+        tools:layout="@layout/fragment_chats" />
 </navigation>

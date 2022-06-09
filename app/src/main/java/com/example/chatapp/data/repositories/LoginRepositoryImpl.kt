@@ -5,8 +5,8 @@ import android.content.Context
 import android.util.Log
 import com.example.chatapp.data.network.ExceptionsMapper
 import com.example.chatapp.domain.base.DataState
-import com.example.chatapp.domain.model.countrycode.Countries
-import com.example.chatapp.domain.model.countrycode.CountryCode
+import com.example.chatapp.domain.model.country_code.Countries
+import com.example.chatapp.domain.model.country_code.CountryCode
 import com.example.chatapp.utils.Constants.USERS_ID
 import com.example.chatapp.utils.readFile
 import com.google.firebase.FirebaseException
@@ -18,8 +18,6 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject

@@ -8,7 +8,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 
 class VerifyOTPCodeUseCase(private val loginRepositoryImpl: LoginRepositoryImpl) {
 
-    fun invoke(
+    operator fun invoke(
         activity: Activity,
         otpCode: String,
         verificationId: String?,

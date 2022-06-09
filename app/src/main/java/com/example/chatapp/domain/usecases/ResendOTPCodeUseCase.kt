@@ -8,7 +8,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 
 class ResendOTPCodeUseCase(private val loginRepositoryImpl: LoginRepositoryImpl) {
 
-    fun invoke(
+    operator fun invoke(
         activity: Activity,
         phoneNumber: String,
         token: PhoneAuthProvider.ForceResendingToken?,

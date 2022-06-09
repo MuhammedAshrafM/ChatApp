@@ -51,7 +51,7 @@ class LoginViewModel @Inject constructor(
 
         _documentSnapshot.postValue(DataState.loading())
 
-        loginUseCase.invoke(activity, _countryCode.value + phoneNumber, {
+        loginUseCase(activity, _countryCode.value + phoneNumber, {
             _documentSnapshot.postValue(it)
         }){
             _verificationCodeInfo.postValue(it)
@@ -75,14 +75,14 @@ class LoginViewModel @Inject constructor(
     fun verifyOTPCode(activity: Activity, otpCode: String) {
         _documentSnapshot.postValue(DataState.loading())
         val verificationId = _verificationCodeInfo.value?.first
-        verifyOTPCodeUseCase.invoke(activity, otpCode, verificationId){
+        verifyOTPCodeUseCase(activity, otpCode, verificationId){
             _documentSnapshot.postValue(it)
         }
     }
 
     fun resendOTP(activity: Activity) {
         _documentSnapshot.postValue(DataState.loading())
-        resendOTPCodeUseCase.invoke(activity, _countryCode.value + _phoneNumber.value, _verificationCodeInfo.value?.second, {
+        resendOTPCodeUseCase(activity, _countryCode.value + _phoneNumber.value, _verificationCodeInfo.value?.second, {
             _documentSnapshot.postValue(it)
         }){
             _verificationCodeInfo.postValue(it)

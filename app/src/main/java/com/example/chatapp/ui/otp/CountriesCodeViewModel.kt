@@ -2,7 +2,7 @@ package com.example.chatapp.ui.otp
 
 import androidx.lifecycle.*
 import com.example.chatapp.domain.base.DataState
-import com.example.chatapp.domain.model.countrycode.CountryCode
+import com.example.chatapp.domain.model.country_code.CountryCode
 import com.example.chatapp.domain.usecases.GetCountriesCodeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -33,7 +33,7 @@ class CountriesCodeViewModel @Inject constructor(
     private fun getCountriesCodes() {
         viewModelScope.launch {
 //            _countriesCodesSF.emit(DataState.loading())
-            getCountriesCodeUseCase.invoke()
+            getCountriesCodeUseCase()
                 .buffer()
                 .onEach { _countriesCodesSF.emit(it) }
                 .launchIn(viewModelScope)

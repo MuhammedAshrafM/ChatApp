@@ -5,6 +5,8 @@ object Constants {
     const val REQUEST_IMAGE_PICK = 2050
     const val REQUEST_FILE_PICK = 2053
     const val REQUEST_CODE_PERMISSION = 2556
+    const val REQUEST_CODE_READ_STORAGE_PERMISSION = 2554
+    const val REQUEST_PICK_IMAGE = 111
 
     const val MAX_ONBOARDING_PAGES = 4
 

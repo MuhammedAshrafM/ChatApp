@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatapp.R
 import com.example.chatapp.databinding.RowItemCountryCodeBinding
-import com.example.chatapp.domain.model.countrycode.CountryCode
+import com.example.chatapp.domain.model.country_code.CountryCode
 
 class CountriesCodeAdapter(
     private val context: Context,

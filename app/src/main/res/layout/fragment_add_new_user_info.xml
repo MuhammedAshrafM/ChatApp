@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.new_user_info.AddNewUserInfoFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/_28sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:gravity="center"
+                android:fontFamily="@font/euclid_circular_a_bold"
+                android:text="@string/profile_info"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/caribbean_green"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:gravity="center"
+                android:fontFamily="@font/euclid_circular_a_regular"
+                android:text="@string/provide_your_name"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/charcoal"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_profile"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_28sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView2"
+                android:src="@drawable/avatar"
+                android:background="@color/off_white"
+                app:riv_corner_radius="@dimen/_12sdp"
+                app:riv_mutate_background="true"
+                android:padding="@dimen/_8sdp"
+                app:riv_tile_mode="clamp"
+                app:riv_oval="true" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_camera"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintEnd_toEndOf="@id/iv_profile"
+                app:layout_constraintBottom_toBottomOf="@id/iv_profile"
+                android:src="@drawable/ic_add_photo"
+                android:background="@color/off_white"
+                app:riv_mutate_background="true"
+                app:riv_tile_mode="clamp"
+                app:riv_oval="true" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_name"
+                style="@style/roundInputTextField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_28sdp"
+                android:layout_marginEnd="@dimen/_28sdp"
+                android:textColorHint="@color/charcoal"
+                app:boxStrokeColor="@color/caribbean_green"
+                app:boxStrokeWidth="@dimen/_1sdp"
+                app:expandedHintEnabled="false"
+                app:boxStrokeErrorColor="@color/red"
+                app:endIconMode="custom"
+                app:endIconTint="@color/charcoal"
+                app:boxBackgroundColor="@color/off_white"
+                app:boxCornerRadiusBottomEnd="@dimen/_12sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_12sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_12sdp"
+                app:boxCornerRadiusTopStart="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_profile">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/name"
+                    android:inputType="textPersonName"
+                    android:padding="@dimen/_12sdp"
+                    android:layout_gravity="center"
+                    android:maxLength="20"
+                    android:letterSpacing="0.05"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textColorHint="@color/charcoal"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_28sdp"
+                android:layout_marginEnd="@dimen/_28sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:background="@drawable/background_button2"
+                android:fontFamily="@font/helvetica_bold"
+                android:gravity="center"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_name"
+                app:layout_constraintVertical_bias="1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

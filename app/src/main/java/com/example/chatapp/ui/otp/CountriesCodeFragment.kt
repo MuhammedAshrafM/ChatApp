@@ -1,12 +1,10 @@
 package com.example.chatapp.ui.otp
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -16,7 +14,7 @@ import com.example.chatapp.R
 import com.example.chatapp.core.BaseFragment
 import com.example.chatapp.databinding.FragmentCountriesCodeBinding
 import com.example.chatapp.domain.base.DataState
-import com.example.chatapp.domain.model.countrycode.CountryCode
+import com.example.chatapp.domain.model.country_code.CountryCode
 import com.example.chatapp.utils.Constants.COUNTRY_CODE_REQUEST
 import com.example.chatapp.utils.Constants.COUNTRY_CODE_SELECTED
 import com.example.chatapp.utils.VerticalMarginItemDecoration

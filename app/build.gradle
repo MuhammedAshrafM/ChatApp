@@ -148,7 +148,7 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.4.0'
 
     // ImagePicker
-    //implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
+//    implementation 'com.github.dhaval2404:imagepicker-support:1.7.1'
 //    implementation 'io.github.ParkSangGwon:tedimagepicker:1.2.4'
 
     // spin kit

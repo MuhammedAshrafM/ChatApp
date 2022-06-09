@@ -9,21 +9,19 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.provider.Settings
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import android.view.ViewGroup
-import android.view.LayoutInflater
-import androidx.core.content.ContextCompat
-
-import android.provider.Settings
-import com.example.chatapp.MainActivity
 import com.example.chatapp.domain.base.DataState
 import com.example.chatapp.utils.Constants
+import com.example.chatapp.utils.Constants.REQUEST_PICK_IMAGE
 import com.example.chatapp.utils.LoadingProgressBarDialog
 import es.dmoral.toasty.Toasty
+import pub.devrel.easypermissions.EasyPermissions
 
 
 abstract class BaseFragment : Fragment() {
@@ -122,6 +120,69 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    fun hasStoragePermissions() =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            EasyPermissions.hasPermissions(
+                requireContext(),
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_MEDIA_LOCATION,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE
+            )
+        } else {
+            EasyPermissions.hasPermissions(
+                requireContext(),
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+        }
+
+    fun requestStoragePermissions() =
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
+            EasyPermissions.requestPermissions(
+                this,
+                "Our App Requires a permission to access your storage.",
+                Constants.REQUEST_CODE_READ_STORAGE_PERMISSION,
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_MEDIA_LOCATION,
+                Manifest.permission.MANAGE_EXTERNAL_STORAGE
+            )
+        }else{
+            EasyPermissions.requestPermissions(
+                this,
+                "Our App Requires a permission to access your storage.",
+                Constants.REQUEST_CODE_READ_STORAGE_PERMISSION,
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+        }
+    fun openPhotoPicker(){
+        if(hasStoragePermissions()) {
+
+            //Creating an intent object and setting its type and action, then passing it as an input argument along with
+            //the PICK_IMAGE_REQUEST code previously declared to the startActivityForResult
+
+
+            //Creating an intent object and setting its type and action, then passing it as an input argument along with
+            //the PICK_IMAGE_REQUEST code previously declared to the startActivityForResult
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+
+            //setType to image/* so that only images will show up
+
+            //setType to image/* so that only images will show up
+            intent.type = "image/*"
+
+            intent.action = Intent.ACTION_GET_CONTENT
+
+            startActivityForResult(intent, REQUEST_PICK_IMAGE)
+        }else{
+            requestStoragePermissions()
+        }
+    }
+
     protected fun openStorage() {
         if (ContextCompat.checkSelfPermission(
                 requireContext(),
@@ -129,7 +190,11 @@ abstract class BaseFragment : Fragment() {
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             requestPermissions(
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.MANAGE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_MEDIA_LOCATION),
+                arrayOf(
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.MANAGE_EXTERNAL_STORAGE,
+                    Manifest.permission.ACCESS_MEDIA_LOCATION
+                ),
                 Constants.REQUEST_CODE_PERMISSION
             )
             return
